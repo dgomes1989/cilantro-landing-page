@@ -17,6 +17,7 @@ const ASSETS = {
   eightaiTestimonial: 'https://cdn.prod.website-files.com/68af32cbd5555c406456f114/68c0881d11b38883b0b06121_eightAI%20Logomark.png',
   garmanTestimonial: 'https://cdn.prod.website-files.com/68af32cbd5555c406456f114/68c08a09c9615dd872d953ef_garman-homes.png',
   snapbackTestimonial: 'https://cdn.prod.website-files.com/68af32cbd5555c406456f114/68bdaf64d9282a20f316cafd_snapback-sports-logo.webp',
+  gogglesGif: 'https://cdn.prod.website-files.com/68af31ddf12f0b14be84dba1/68b794d5d51d8c79b4eb5d81_Goggles.gif',
 }
 
 // --- Scroll animation hook (replaces framer-motion) ---
@@ -298,7 +299,7 @@ function ScarySection() {
       <div className="scary-layout">
         <Animate animation="scale-in">
           <div className="scary-image">
-            <img src={ASSETS.heroGif} alt="Statue with VR headset" />
+            <img src={ASSETS.gogglesGif} alt="Statue with VR headset" />
           </div>
         </Animate>
         <Animate animation="fade-up" delay={200}>
