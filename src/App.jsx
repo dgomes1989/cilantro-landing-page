@@ -196,74 +196,54 @@ function HeroSection() {
   )
 }
 
-function SupportSvgIcon() {
-  return (
-    <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" strokeWidth="2" className="hww-icon hww-svg-icon">
-      <circle cx="60" cy="60" r="28" />
-      <path d="M32 55 C32 38, 60 20, 88 55" />
-      <path d="M28 58 C28 58, 28 72, 34 72" />
-      <path d="M92 58 C92 58, 92 72, 86 72" />
-      <rect x="24" y="52" width="10" height="24" rx="5" />
-      <rect x="86" y="52" width="10" height="24" rx="5" />
-      <path d="M92 72 C92 86, 72 90, 64 90" />
-      <circle cx="64" cy="90" r="4" />
-    </svg>
-  )
-}
-
 function HowWeWorkSection() {
-  const steps = [
+  const cards = [
     {
-      num: '1',
-      title: 'Set a strategy',
-      desc: 'We survey your AI baseline, defining company-wide proficiency and use cases.',
-      color: 'hww-plum',
+      title: 'Strategy',
+      desc: 'No 6-month strategy work. No 200-slide presentations. We get right to work on holistic & function-specific audits that surface the most compelling AI use cases.',
       icon: ASSETS.brainOutline,
     },
     {
-      num: '2',
-      title: 'Build workflows',
-      desc: 'We build you tools and workflows that automate your business.',
-      color: 'hww-brown',
+      title: 'Transformation',
+      desc: 'Custom partnership that combines bespoke change management & AI tooling with baseline metrics to drive measurable ROI.',
       icon: ASSETS.hammerOutline,
     },
     {
-      num: '3',
-      title: 'Train teams',
-      desc: 'We train your team and help you build an AI-powered workforce.',
-      color: 'hww-navy',
+      title: 'Engineering',
+      desc: 'Outcome-based, subscription-style engineering squads that leverage AI acceleration to ship software faster and more affordably.',
       icon: ASSETS.globeOutline,
-    },
-    {
-      num: '4',
-      title: 'Support',
-      desc: 'We stick around as your chief AI officer.',
-      color: 'hww-green',
-      icon: null,
     },
   ]
 
   return (
     <section className="hww-section" id="approach">
       <div className="container">
-        <Animate animation="fade-up">
-          <h2 className="hww-heading">How we work</h2>
-        </Animate>
-        <div className="hww-stack">
-          {steps.map((step, i) => (
-            <div className="hww-sticky-wrap" key={i} style={{ '--card-index': i }}>
-              <div className={`hww-card ${step.color}`}>
-                <div className="hww-card-left">
-                  <span className="hww-num">{step.num}</span>
-                  <h3 className="hww-title">{step.title}</h3>
-                  <p className="hww-desc">{step.desc}</p>
+        <div className="hww-label">OUR APPROACH</div>
+        <div className="hww-grid">
+          <div className="hww-left">
+            <Animate animation="fade-up">
+              <h2 className="hww-heading"><span className="hww-accent">Cilantro</span> helps you shift from AI-absent to AI-native.</h2>
+            </Animate>
+            <Animate animation="fade-up" delay={150}>
+              <CilantroIcon size={48} />
+            </Animate>
+          </div>
+          <div className="hww-right">
+            {cards.map((card, i) => (
+              <Animate animation="fade-up" delay={i * 120} key={i}>
+                <div className="hww-card">
+                  <div className="hww-card-content">
+                    <h3 className="hww-title">{card.title}</h3>
+                    <p className="hww-desc">{card.desc}</p>
+                    <span className="hww-link">Learn more <ArrowUpRight size={14} /></span>
+                  </div>
+                  <div className="hww-card-icon">
+                    <img src={card.icon} alt="" className="hww-icon" />
+                  </div>
                 </div>
-                <div className="hww-card-right">
-                  {step.icon ? <img src={step.icon} alt="" className="hww-icon" /> : <SupportSvgIcon />}
-                </div>
-              </div>
-            </div>
-          ))}
+              </Animate>
+            ))}
+          </div>
         </div>
       </div>
     </section>
