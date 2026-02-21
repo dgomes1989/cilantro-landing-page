@@ -135,14 +135,23 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
+
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
         <div className="container">
           <a href="/" className="logo-link">
-            <CilantroLogo />
+            <CilantroLogo color={menuOpen ? '#000' : '#fff'} />
           </a>
-          <button className="burger-menu" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
+          <button className={`burger-menu ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
             <span></span>
             <span></span>
           </button>
@@ -151,10 +160,8 @@ function Navbar() {
       <div className={`nav-overlay ${menuOpen ? 'open' : ''}`}>
         <div className="nav-overlay-links">
           <a href="/" onClick={() => setMenuOpen(false)}>Home</a>
-          <a href="#approach" onClick={() => setMenuOpen(false)}>AI Transformation</a>
-          <a href="#approach" onClick={() => setMenuOpen(false)}>AI Engineering</a>
           <a href="#" onClick={() => setMenuOpen(false)}>Who We Are</a>
-          <a href="#" onClick={() => setMenuOpen(false)}>Resources</a>
+          <a href="#" onClick={() => setMenuOpen(false)}>Join Us</a>
           <a href="#cta" onClick={() => setMenuOpen(false)}>Get Started</a>
         </div>
       </div>
