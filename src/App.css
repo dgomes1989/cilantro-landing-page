@@ -1082,7 +1082,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--color-black);
+  background-color: var(--color-yellow);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -1101,18 +1101,44 @@
 .nav-overlay-links {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
 }
 
 .nav-overlay-links a {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 8vw, 5rem);
   font-weight: 500;
-  color: var(--color-white);
-  transition: color 0.3s ease;
+  color: var(--color-black);
+  transition: opacity 0.3s ease;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  display: block;
+}
+
+.nav-overlay-links a:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .nav-overlay-links a:hover {
-  color: var(--color-yellow);
+  opacity: 0.6;
+}
+
+/* Navbar state when menu is open */
+.navbar.menu-open {
+  background-color: var(--color-yellow);
+  backdrop-filter: none;
+}
+
+/* Burger to X animation */
+.burger-menu.active span {
+  background-color: var(--color-black);
+}
+
+.burger-menu.active span:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.burger-menu.active span:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
 }
 
 /* ===== VR GOGGLES SECTION ===== */
