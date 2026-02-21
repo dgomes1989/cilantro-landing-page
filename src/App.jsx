@@ -199,19 +199,28 @@ function HeroSection() {
 function HowWeWorkSection() {
   const cards = [
     {
-      title: 'Strategy',
-      desc: 'No 6-month strategy work. No 200-slide presentations. We get right to work on holistic & function-specific audits that surface the most compelling AI use cases.',
+      num: '1',
+      title: 'Set a strategy',
+      desc: 'We assess where your company stands with AI today — mapping out proficiency levels, gaps, and the highest-impact use cases across every function.',
       icon: ASSETS.brainOutline,
     },
     {
-      title: 'Transformation',
-      desc: 'Custom partnership that combines bespoke change management & AI tooling with baseline metrics to drive measurable ROI.',
+      num: '2',
+      title: 'Build workflows',
+      desc: 'We design and deploy custom tools and automated workflows that streamline your operations and put AI to work inside your business.',
       icon: ASSETS.hammerOutline,
     },
     {
-      title: 'Engineering',
-      desc: 'Outcome-based, subscription-style engineering squads that leverage AI acceleration to ship software faster and more affordably.',
+      num: '3',
+      title: 'Train teams',
+      desc: 'We upskill your people with hands-on training, turning your existing workforce into a team that thinks and builds with AI.',
       icon: ASSETS.globeOutline,
+    },
+    {
+      num: '4',
+      title: 'Ongoing support',
+      desc: 'We don\'t disappear after launch. We stay embedded as your fractional AI leadership — guiding strategy as your needs evolve.',
+      icon: ASSETS.brainOutline,
     },
   ]
 
@@ -233,6 +242,7 @@ function HowWeWorkSection() {
               <Animate animation="fade-up" delay={i * 120} key={i}>
                 <div className="hww-card">
                   <div className="hww-card-content">
+                    <span className="hww-num">{card.num}</span>
                     <h3 className="hww-title">{card.title}</h3>
                     <p className="hww-desc">{card.desc}</p>
                     <span className="hww-link">Learn more <ArrowUpRight size={14} /></span>

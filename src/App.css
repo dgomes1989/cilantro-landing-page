@@ -289,6 +289,25 @@
   right: 1.5rem;
 }
 
+.hww-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-white);
+  transition: border-color 0.4s ease, color 0.4s ease;
+}
+
+.hww-card:hover .hww-num {
+  border-color: rgba(0, 0, 0, 0.3);
+  color: var(--color-black);
+}
+
 .hww-title {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 700;
