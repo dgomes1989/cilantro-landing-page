@@ -317,9 +317,18 @@
 .disruption-heading {
   font-size: 4rem;
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--color-white);
   margin-bottom: 2rem;
+}
+
+.disruption-pixel {
+  font-family: 'Silkscreen', monospace;
+  color: var(--color-yellow);
+}
+
+.disruption-accent {
+  color: var(--color-yellow);
 }
 
 .disruption-body {
@@ -504,6 +513,104 @@
   height: 16px;
 }
 
+/* ===== SCARY SECTION ===== */
+.scary-section {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--color-black);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.scary-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
+}
+
+.scary-layout {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.scary-layout > .anim:first-child {
+  flex: 0 0 45%;
+}
+
+.scary-layout > .anim:last-child {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.scary-image {
+  width: 100%;
+}
+
+.scary-image img {
+  width: 100%;
+  height: 80vh;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.scary-text {
+  padding-right: var(--container-padding);
+}
+
+.scary-text h2 {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: var(--color-white);
+  line-height: 1.3;
+}
+
+.scary-pixel {
+  font-family: 'Silkscreen', monospace;
+  color: var(--color-yellow);
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  display: inline;
+}
+
+@media screen and (max-width: 991px) {
+  .scary-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .scary-image {
+    max-width: 70%;
+  }
+
+  .scary-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .scary-pixel {
+    font-size: 2.25rem;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .scary-image {
+    max-width: 90%;
+  }
+
+  .scary-section {
+    min-height: 80vh;
+  }
+}
+
 /* ===== MARQUEE SECTION ===== */
 .marquee-section {
   background-color: var(--color-black);
@@ -628,28 +735,63 @@
 /* ===== CTA SECTION ===== */
 .cta-section {
   background-color: var(--color-black);
-  padding: var(--section-padding) 0;
+  padding: var(--section-padding) 0 0;
 }
 
-.cta-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+.cta-top {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.cta-top .anim {
+  width: 100%;
+  text-align: center;
 }
 
 .cta-heading {
-  font-size: 4rem;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
   font-weight: 500;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--color-white);
-  margin-bottom: 2rem;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-cta:hover {
+  opacity: 0.85;
+}
+
+.cta-image-wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  overflow: hidden;
 }
 
 .cta-image {
   width: 100%;
-  border-radius: var(--roundness-large);
+  border-radius: var(--roundness-large) var(--roundness-large) 0 0;
   object-fit: cover;
+  display: block;
 }
 
 /* ===== FOOTER ===== */
@@ -659,7 +801,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer .container {
+.footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -770,10 +912,6 @@
     min-width: auto;
   }
 
-  .cta-layout {
-    grid-template-columns: 1fr;
-  }
-
   .cta-heading {
     font-size: 3rem;
   }
@@ -782,7 +920,7 @@
     font-size: 2.5rem;
   }
 
-  .footer .container {
+  .footer-inner {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;

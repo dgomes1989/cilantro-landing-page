@@ -273,13 +273,37 @@ function DisruptionSection() {
   return (
     <section className="disruption-section">
       <div className="container">
-        <Animate animation="fade-up">
-          <div className="disruption-content">
-            <h2 className="disruption-heading">You have a choice. Disrupt yourself. Or be disrupted by others.</h2>
+        <div className="disruption-content">
+          <Animate animation="fade-up">
+            <h2 className="disruption-heading">You have a choice. <span className="disruption-pixel">Disrupt yourself.</span><br /><span className="disruption-accent">Or be disrupted by others.</span></h2>
+          </Animate>
+          <Animate animation="fade-up" delay={150}>
             <p className="disruption-body">
               AI isn't coming. it's here. The companies that win the next decade will be the ones that transform now. We don't care about today. We care about the next decade. And helping you win it.
             </p>
+          </Animate>
+          <Animate animation="fade-up" delay={300}>
             <a href="#cta" className="btn-get-started">Get started</a>
+          </Animate>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function ScarySection() {
+  return (
+    <section className="scary-section">
+      <div className="scary-grid-bg"></div>
+      <div className="scary-layout">
+        <Animate animation="scale-in">
+          <div className="scary-image">
+            <img src={ASSETS.heroGif} alt="Statue with VR headset" />
+          </div>
+        </Animate>
+        <Animate animation="fade-up" delay={200}>
+          <div className="scary-text">
+            <h2>AI isn't scary. <span className="scary-pixel">Ignoring it is.</span></h2>
           </div>
         </Animate>
       </div>
@@ -291,13 +315,15 @@ function MarqueeSection() {
   const text = 'Built by builders, trusted by leaders'
   const items = Array(10).fill(text)
   return (
-    <section className="marquee-section">
-      <div className="marquee-track">
-        {items.map((item, i) => (
-          <span key={i} className="marquee-text">{item} <span className="dot"></span></span>
-        ))}
-      </div>
-    </section>
+    <Animate animation="fade-in">
+      <section className="marquee-section">
+        <div className="marquee-track">
+          {items.map((item, i) => (
+            <span key={i} className="marquee-text">{item} <span className="dot"></span></span>
+          ))}
+        </div>
+      </section>
+    </Animate>
   )
 }
 
@@ -335,16 +361,25 @@ function CTASection() {
   return (
     <section className="cta-section" id="cta">
       <div className="container">
-        <div className="cta-layout">
-          <Animate animation="fade-up">
-            <h2 className="cta-heading">Stay on the right side of history.</h2>
-            <a href="#" className="btn-get-started">Get Started</a>
+        <div className="cta-top">
+          <Animate animation="scale-in">
+            <CilantroIcon size={48} />
           </Animate>
-          <Animate animation="scale-in" delay={200}>
-            <img src={ASSETS.laptopGif} alt="People working with AI" className="cta-image" />
+          <Animate animation="fade-up" delay={100}>
+            <h2 className="cta-heading">Stay on the right side of history.</h2>
+          </Animate>
+          <Animate animation="fade-up" delay={200}>
+            <a href="#" className="btn-cta">
+              Get Started <ArrowUpRight size={16} />
+            </a>
           </Animate>
         </div>
       </div>
+      <Animate animation="scale-in" delay={200}>
+        <div className="cta-image-wrap">
+          <img src={ASSETS.laptopGif} alt="People working with AI" className="cta-image" />
+        </div>
+      </Animate>
     </section>
   )
 }
@@ -353,15 +388,19 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="container">
-        <div className="footer-left">
-          <a href="/">
-            <CilantroLogo height={24} />
-          </a>
-          <span className="footer-copy">&copy; 2026 Cilantro. All rights reserved.</span>
-        </div>
-        <div className="footer-right">
-          <a href="mailto:hello@cilantro.ai" className="footer-email">hello@cilantro.ai</a>
-        </div>
+        <Animate animation="fade-up">
+          <div className="footer-inner">
+            <div className="footer-left">
+              <a href="/">
+                <CilantroLogo height={24} />
+              </a>
+              <span className="footer-copy">&copy; 2026 Cilantro. All rights reserved.</span>
+            </div>
+            <div className="footer-right">
+              <a href="mailto:hello@cilantro.ai" className="footer-email">hello@cilantro.ai</a>
+            </div>
+          </div>
+        </Animate>
       </div>
     </footer>
   )
@@ -374,6 +413,7 @@ function App() {
       <HeroSection />
       <HowWeWorkSection />
       <DisruptionSection />
+      <ScarySection />
       <MarqueeSection />
       <FAQSection />
       <CTASection />
